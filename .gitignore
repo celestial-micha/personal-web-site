@@ -1,0 +1,15 @@
+# Private documents
+*.pdf
+*.doc
+*.docx
+*.txt
+
+# Local AI/editor metadata
+.claude/
+.Codex/
+AGENTS.md
+CLAUDE.md
+
+# System files
+.DS_Store
+Thumbs.db
