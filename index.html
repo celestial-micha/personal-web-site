@@ -101,7 +101,7 @@ body {
 }
 
 .about-inner {
-  max-width: 1080px;
+  max-width: 1180px;
 }
 
 .hero-inner {
@@ -183,7 +183,7 @@ body {
 /* About */
 .about-grid {
   display: grid;
-  grid-template-columns: 1.02fr 0.98fr;
+  grid-template-columns: 1.16fr 0.84fr;
   gap: 40px;
   align-items: center;
 }
@@ -203,6 +203,12 @@ body {
   font-weight: 500;
   line-height: 1.2;
   margin-bottom: 24px;
+}
+
+.about-heading {
+  font-size: clamp(28px, 3.6vw, 40px);
+  line-height: 1.3;
+  white-space: normal;
 }
 
 .about-text p {
@@ -521,9 +527,22 @@ div.project-item {
 
 .connect-line {
   width: 1px;
-  height: 40px;
+  height: 58px;
   background: linear-gradient(to bottom, transparent, var(--accent-dim), transparent);
-  margin: 0 auto 40px;
+  margin: 46px auto 0;
+  position: relative;
+}
+
+.connect-line::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border: 1px solid rgba(184,153,92,0.75);
+  background: var(--bg);
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 /* Fade-in on scroll */
@@ -551,6 +570,10 @@ div.project-item {
   .about-grid {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+  .about-heading {
+    font-size: clamp(25px, 7vw, 34px);
+    white-space: normal;
   }
   .focus-grid {
     grid-template-columns: 1fr 1fr;
@@ -611,9 +634,9 @@ div.project-item {
 <section class="section" id="hero">
   <div class="section-inner hero-inner">
     <div class="hero-content">
-      <p class="hero-preline">Large Language Models &sdot; Scene Graphs &sdot; AI Applications &sdot; <span class="nowrap">LLM Data Generation &amp; Evaluation</span></p>
+      <p class="hero-preline"><span class="nowrap">LLM Data Generation &amp; Evaluation</span> / LLM Post-training / Agent Workflows / AI Applications</p>
       <h1 class="hero-name">冯思远</h1>
-      <p class="hero-subtitle">大模型 &sdot; 场景图 &sdot; AI 应用开发 &sdot; 大模型数据生成及评估</p>
+      <p class="hero-subtitle">大模型数据生成与评估 / 大模型后训练 / Agent 工作流 / AI 应用开发</p>
       <div class="hero-line"></div>
     </div>
   </div>
@@ -625,10 +648,10 @@ div.project-item {
     <div class="about-grid">
       <div class="about-text">
         <p class="section-label reveal">About</p>
-        <h2 class="section-heading reveal">拆解复杂问题<br>创造可落地的 AI 应用</h2>
-        <p class="reveal">我是<strong>冯思远</strong>，本科就读于山东大学计算机科学与技术专业，硕士毕业于中国科学院大学信息工程研究所。我擅长解决复杂问题，也就是从问题和需求出发，通过对复杂问题拆分，制作出解决问题相应的方法或应用，并在实践反馈中迭代落地。</p>
-        <p class="reveal">在 UCAS 的硕士研究中，我将多模态大模型引入场景图生成任务，围绕数据生成、过滤、处理、构建和系统评估形成闭环，在 VG150 基准上构建了包含逾 90 万关系三元组的高信息量数据集 MLLM-HSGG，并构建了一个基于大模型的场景图数据生成及四维度评估系统。</p>
-        <p class="reveal">除此之外，我持续把自己的热爱通过 AI 转化为实际应用。通过 vibe coding 与反馈迭代，我完成了 paper2ppt 论文转 PPT Agent 工具链、青枝思维导图等完整落地可运行作品。</p>
+        <h2 class="section-heading about-heading reveal">数据构造、模型评估、大模型微调<br>复杂问题拆解，想法快速完整落地交付</h2>
+        <p class="reveal">我是<strong>冯思远</strong>，本科就读于山东大学计算机科学与技术专业，硕士就读于中国科学院大学信息工程研究所。我关注大模型数据生成、模型评估、模型微调与后训练、Agent 工作流和 AI 应用落地。</p>
+        <p class="reveal">在 UCAS 的硕士研究中，我围绕场景图数据生成任务，使用多模态大模型构建了高信息场景图数据生成与质量评估系统；通过可解析生成、语义密度增强、质量评估与高信息量迭代，构建了包含 903K 三元组、93.43% 生成有效率、达到 SOTA 水平的高信息量三元组数据集 MLLM-HSGG。</p>
+        <p class="reveal">我近期实践大模型微调、Agent 与 vibe coding AI 应用生成：复现 nanochat 训练链路，完成 Qwen2.5-0.5B 本地 LoRA SFT / DPO 后训练，围绕数据构造清洗、模型回归测试、结构化行为评分与 badcase 数据迭代进行大模型微调与能力迭代；同时基于 LangGraph 构建论文自动生成 PPT 的 Agent 系统，串联 PDF 解析、内容规划、PPTX 渲染、布局检查与自动返修；并使用 Codex、Claude Code 制作网页思维导图应用和手机小游戏 Switch Rush，将想法快速落地并迭代推进为完整可交付的作品。</p>
       </div>
       <div class="stats reveal">
         <div class="stat-item">
@@ -638,6 +661,14 @@ div.project-item {
         <div class="stat-item">
           <div class="stat-num">155</div>
           <div class="stat-label">技术博客文章</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">903K</div>
+          <div class="stat-label">MLLM 高信息场景图数据生成评估系统生成数据集规模</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">93.43%</div>
+          <div class="stat-label">MLLM 场景图系统数据<br>生成有效率</div>
         </div>
         <div class="award-list">
           <div class="award-title">Awards</div>
@@ -661,23 +692,23 @@ div.project-item {
     <div class="focus-grid reveal">
       <div class="focus-card">
         <div class="focus-icon">&#9670;</div>
-        <div class="focus-title">多模态场景图生成</div>
-        <div class="focus-desc">基于 MLLM 的闭集词汇场景图<br>高信息量关系数据生成<br>与四维评估系统<br>VG150 · MLLM-HSGG</div>
+        <div class="focus-title">数据生成与质量评估</div>
+        <div class="focus-desc">MLLM 高信息量场景图数据生成与评估系统，包含数据构造、数据规则清洗、数据质量评估、badcase 分析，与系统高信息化闭环迭代<br>LoRA / DPO 数据处理经验</div>
       </div>
       <div class="focus-card">
         <div class="focus-icon">&#9632;</div>
-        <div class="focus-title">大模型微调</div>
-        <div class="focus-desc">nanochat SFT 链路复现<br>Qwen LoRA / DPO 微调<br>训练配置、数据与推理</div>
+        <div class="focus-title">大模型后训练</div>
+        <div class="focus-desc">nanochat 训练链路复现<br>Qwen2.5 LoRA SFT / DPO<br>instruction 数据与 preference pair 构造<br>固定 prompt 回归与模型微调能力评估</div>
       </div>
       <div class="focus-card">
         <div class="focus-icon">&#9650;</div>
-        <div class="focus-title">AI Agent</div>
-        <div class="focus-desc">LangChain · LangGraph<br>paper2ppt：论文 PDF 到可编辑 PPTX Agent<br>Agent 自动评估返修落地系统</div>
+        <div class="focus-title">Agent 工作流</div>
+        <div class="focus-desc">paper2ppt 论文转 PPT Agent<br>PDF 解析、内容规划、PPTX 渲染<br>用 LangChain / LangGraph 编排流程<br>自动检查布局并返修</div>
       </div>
       <div class="focus-card">
         <div class="focus-icon">&#9679;</div>
-        <div class="focus-title">PyTorch 推理训练</div>
-        <div class="focus-desc">Python · PyTorch<br>训练/推理流程与调试<br>Linux 项目环境搭建<br>项目问题定位及修改</div>
+        <div class="focus-title">AI 应用开发</div>
+        <div class="focus-desc">把想法拆成可运行功能<br>用 Agent 编程快速实现原型<br>试运行、定位问题、反馈迭代<br>青枝思维导图 · Switch Rush</div>
       </div>
     </div>
   </div>
@@ -691,42 +722,28 @@ div.project-item {
     <div class="projects-list reveal">
       <a class="project-item" href="https://github.com/celestial-micha/MLLM-HSGG" target="_blank" rel="noopener">
         <div class="project-left">
-          <div class="project-index">01 &mdash; 硕士研究课题</div>
+          <div class="project-index">01 &mdash; 数据生成与质量评估</div>
           <div class="project-name">MLLM-HSGG</div>
-          <div class="project-desc">将通用多模态大模型输出适配到 VG150 闭集词汇与三元组格式，形成生成、增强、评估、数据闭环；构建 903,223 条高信息量关系三元组。</div>
+          <div class="project-desc">面向 VG150 标注稀疏、长尾覆盖不足与单标签评估局限，设计 MLLM 数据生成与质量评估系统；通过 prompt 约束、规则解析、词汇对齐、事实性过滤与四维评分筛选高质量数据。最终构建 903,223 条高信息三元组，生成有效率达 93.43%，高信息关系子集 mR@100 从 17.60% 提升至 48.33%。</div>
           <div class="project-tags">
             <span class="project-tag">MLLM</span>
-            <span class="project-tag">Scene Graph</span>
-            <span class="project-tag">VG150</span>
+            <span class="project-tag">Data Quality</span>
             <span class="project-tag">Evaluation</span>
-          </div>
-        </div>
-        <span class="project-arrow">&rarr;</span>
-      </a>
-      <a class="project-item" href="https://github.com/celestial-micha/paper2ppt" target="_blank" rel="noopener">
-        <div class="project-left">
-          <div class="project-index">02 &mdash; Agent 实践</div>
-          <div class="project-name">paper2ppt</div>
-          <div class="project-desc">基于 LangChain / LangGraph 的论文转 PPT Agent，串联 PDF 解析、素材提取、SlideSpec、PPTX 渲染、布局 QA、自动返修与逐页讲稿生成。</div>
-          <div class="project-tags">
-            <span class="project-tag">LangGraph</span>
-            <span class="project-tag">Agent Workflow</span>
-            <span class="project-tag">PPTX QA</span>
-            <span class="project-tag">Python</span>
+            <span class="project-tag">VG150</span>
           </div>
         </div>
         <span class="project-arrow">&rarr;</span>
       </a>
       <div class="project-item">
         <div class="project-left">
-          <div class="project-index">03 &mdash; 大模型微调实践</div>
+          <div class="project-index">02 &mdash; 后训练与行为评估</div>
           <div class="project-name">NanoChat SFT / Qwen LoRA-DPO</div>
-          <div class="project-desc">复现 nanochat tokenizer、base train / eval、SFT 与对话推理闭环；实践 Qwen 本地 LoRA SFT 与 DPO，聚焦数据格式、训练配置、保存 checkpoint 与复盘。</div>
+          <div class="project-desc">独立跑通 nanochat tokenizer、base train / eval、SFT 与对话推理链路；使用 Qwen2.5-0.5B 完成本地 LoRA SFT / DPO 后训练，覆盖 instruction-answer 数据清洗、preference pair 构造、adapter 保存加载、固定测试问题回归与结构化行为评分。训练后对比 base、public-SFT、custom-SFT 与 DPO 输出，依据 badcase 反向补数据，并保留表现更稳定的 SFT checkpoint。</div>
           <div class="project-tags">
             <span class="project-tag">SFT</span>
             <span class="project-tag">LoRA</span>
             <span class="project-tag">DPO</span>
-            <span class="project-tag">Qwen</span>
+            <span class="project-tag">Data Curation</span>
           </div>
         </div>
         <div class="project-links">
@@ -734,16 +751,30 @@ div.project-item {
           <a class="project-link" href="https://github.com/celestial-micha/qwen-local-lora-sft-dpo" target="_blank" rel="noopener">Qwen</a>
         </div>
       </div>
+      <a class="project-item" href="https://github.com/celestial-micha/paper2ppt" target="_blank" rel="noopener">
+        <div class="project-left">
+          <div class="project-index">03 &mdash; Agent 工作流实践</div>
+          <div class="project-name">paper2ppt</div>
+          <div class="project-desc">构建论文 PDF 转可编辑 PPTX 的 Agent 原型，把 PDF 解析、内容规划、结构化 SlideSpec、PPTX 渲染、布局 QA、自动返修和 speaker script 生成串成可复用流程；针对页面空白、标题越界、内容过密和讲稿不一致等问题做多轮评估与修复，最终支持输出可编辑 PPTX 与逐页演讲稿 Markdown。</div>
+          <div class="project-tags">
+            <span class="project-tag">LangGraph</span>
+            <span class="project-tag">Agent Workflow</span>
+            <span class="project-tag">Auto Repair</span>
+            <span class="project-tag">PPTX QA</span>
+          </div>
+        </div>
+        <span class="project-arrow">&rarr;</span>
+      </a>
       <div class="project-item">
         <div class="project-left">
-          <div class="project-index">04 &mdash; Vibe Coding 创意应用</div>
+          <div class="project-index">04 &mdash; AI 应用落地</div>
           <div class="project-name">Qingzhi Mind Map / Switch Rush</div>
-          <div class="project-desc">从热爱和兴趣出发，经由问题讨论、需求拆解、交互验证与反馈迭代，落地青枝思维导图项目与 Switch Rush 手机小游戏；覆盖导入导出、离线缓存、移动端适配与应用包装。</div>
+          <div class="project-desc">使用 Codex、Claude Code 等 Agent 编程工具，将想法拆成可验证功能并快速做出可运行版本；青枝思维导图支持节点编辑、关系线、分组、导入导出与离线缓存，Switch Rush 支持移动端适配、网页试玩与应用包装。两个项目均完成从试运行、问题定位到修复验证的多轮迭代，形成可运行、可展示、可交付版本。</div>
           <div class="project-tags">
-            <span class="project-tag">PWA</span>
-            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">Agent Coding</span>
+            <span class="project-tag">Problem Solving</span>
             <span class="project-tag">Product Iteration</span>
-            <span class="project-tag">Vibe Coding</span>
+            <span class="project-tag">Delivery</span>
           </div>
         </div>
         <div class="project-links">
@@ -761,7 +792,6 @@ div.project-item {
     <div class="connect-content">
       <p class="section-label reveal">Connect</p>
       <h2 class="section-heading reveal">保持联系</h2>
-      <div class="connect-line reveal"></div>
       <div class="connect-links reveal">
         <a class="connect-link" href="https://github.com/celestial-micha" target="_blank" rel="noopener">
           <span class="connect-link-icon">&#9670;</span>
@@ -779,6 +809,7 @@ div.project-item {
           <span class="connect-link-value">CSDN · 宇宙计算机</span>
         </a>
       </div>
+      <div class="connect-line reveal"></div>
     </div>
   </div>
 </section>
